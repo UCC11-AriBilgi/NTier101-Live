@@ -25,7 +25,7 @@ namespace NTier101_Live.DAL
         }
 
         // Kullanıcının tablo üzerinde yapacağı cesitli arama işlemleri için...
-        // Sisteme giriş için
+        // Sisteme girişteki kullanıcı adı ve şifresi ne uygun kullanıcıyı aramak  için
 
         public DataTable searchUserIDPassw(string userName, string userPassw)
         {
@@ -69,7 +69,7 @@ namespace NTier101_Live.DAL
             string query;
 
             query = "INSERT INTO datUser ";
-            query += "(UserName,UserPassw,Ad,Soyad,TCKimlik,MudurlukID) VALUES ";
+            query += "(UserName,UserPassw,Ad,Soyad,TCKimlikNo,MudurlukID) VALUES ";
             query += "(@UserName,@UserPassw,@Ad,@Soyad,@TCKimlik,@MudurlukID)";
 
             SqlParameter[] sqlParameters = new SqlParameter[6];

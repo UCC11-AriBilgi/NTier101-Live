@@ -19,7 +19,7 @@ namespace NTier101_Live
         public DBOperation()
         {
             dataAdapter = new SqlDataAdapter();
-            Connection= new SqlConnection(@"Data Source=BASAE\ARIBILGI;Initial Catalog=NTier101DB;Integrated Security=True;TrustServerCertificate=True;");
+            Connection= new SqlConnection(@"Data Source=BASAE;Initial Catalog=NTier101DB;Integrated Security=True;TrustServerCertificate=True;");
         }
 
         private SqlConnection openConnection()
