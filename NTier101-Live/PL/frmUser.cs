@@ -95,7 +95,11 @@ namespace NTier101_Live.PL
 
         private void btonDelete_Click(object sender, EventArgs e)
         {
+            Mode = "D"; // Delete Mode
 
+            UserID = Convert.ToInt32(dgrdUser.CurrentRow.Cells[0].Value);
+
+            IUD();
         }
 
         private void bonSave_Click(object sender, EventArgs e)
@@ -106,6 +110,8 @@ namespace NTier101_Live.PL
 
         public void IUD()
         {
+            // Mode parametresine göre ilgili diğer metotlara gönderecek olan metot...
+
             datUser datUser = new datUser();
 
             switch (Mode)
@@ -117,12 +123,15 @@ namespace NTier101_Live.PL
                     break;
 
                 case "U":
+                    datUser = datUserBLL.updateUser(UserID,tboxUserName.Text, tboxUserPassw.Text, tboxAd.Text, tboxSoyad.Text, tboxTCKimlik.Text, Convert.ToInt32(tboxMudurlukID.Text));
 
-
+                    MessageBox.Show("Kayıt güncelleme işlemi basarılı...");
                     break;
 
                 case "D":
+                    datUser=datUserBLL.deleteUser(UserID);
 
+                    MessageBox.Show("Kayıt silme işlemi basarılı...");
 
                     break;
 
