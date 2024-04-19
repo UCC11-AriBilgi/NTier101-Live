@@ -38,7 +38,6 @@ namespace NTier101_Live.PL
 
             ShowRecords();
 
-
         }
 
         public void FormInit()
