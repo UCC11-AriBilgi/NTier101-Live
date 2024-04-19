@@ -19,7 +19,7 @@ namespace NTier101_Live.PL
         private datUserBLL datUserBLL=new datUserBLL();
 
         public string Mode; // IUD gibi karakteri içerecek
-        public int UserID;
+        public int UserID; // U/D işlemleri için
 
 
         public frmUser()
@@ -90,7 +90,7 @@ namespace NTier101_Live.PL
 
         private void btonUpdate_Click(object sender, EventArgs e)
         {
-
+            FillComponents();
         }
 
         private void btonDelete_Click(object sender, EventArgs e)
@@ -134,6 +134,30 @@ namespace NTier101_Live.PL
 
             ShowRecords();
 
+
+
+        }
+
+        public void FillComponents()
+        {
+            // DG üzerindeki bilgileri ekrandaki componentlere taşıma
+            Mode = "U"; // Update Mod
+            groupBox1.Enabled = true;
+
+            UserID = Convert.ToInt32(dgrdUser.CurrentRow.Cells[0].Value); // hangi kayıt üzerinde duruyorum acaba
+
+            datUser datUser = new datUser();
+
+            datUser= datUserBLL.getUser(UserID);
+
+            // Okuduğum bilgileri dolduruyorum.
+
+            tboxUserName.Text= datUser.UserName;
+            tboxUserPassw.Text = datUser.UserPassw;
+            tboxAd.Text = datUser.Ad;
+            tboxSoyad.Text = datUser.Soyad;
+            tboxTCKimlik.Text= datUser.TCKimlik;
+            tboxMudurlukID.Text=datUser.MudurlukID.ToString();
 
 
         }

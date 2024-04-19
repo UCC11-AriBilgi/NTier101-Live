@@ -19,7 +19,9 @@ namespace NTier101_Live
         public DBOperation()
         {
             dataAdapter = new SqlDataAdapter();
-            Connection= new SqlConnection(@"Data Source=BASAE;Initial Catalog=NTier101DB;Integrated Security=True;TrustServerCertificate=True;");
+            Connection= new SqlConnection(@"Data Source=PHOKAIA\SS2019DE;Initial Catalog=NTier101DB;Integrated Security=True;TrustServerCertificate=True;"); // Home
+
+            //Connection = new SqlConnection(@"Data Source=BASAE;Initial Catalog=NTier101DB;Integrated Security=True;TrustServerCertificate=True;"); // ArıBilgi
         }
 
         private SqlConnection openConnection()
